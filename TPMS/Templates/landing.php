@@ -47,7 +47,10 @@
         <h1 id="headline">explore courses with no limits.</h1>
 
         <?php 
-  session_start();
+
+
+        include "db_conn.php";
+        session_start();
 
   if(isset($_SESSION['User_ID']) && isset($_SESSION['Full_Name'])){
 ?>
@@ -60,54 +63,29 @@
     exit();
   }
     ?>
-        <div class="scroll-container" data-simplebar>
-            <h3 id="pop-cor-headline">popular courses</h3>
-            <div class="courses-wrapper" >
-              <div class="course">
-                <img src="https://static.tvtropes.org/pmwiki/pub/images/en_us_arcane_character_jinx_vertical_4x5_rgb_5.jpg" alt="" width="150px">
-                <h5 class="course-name">The Jinx Course</h5> 
-                <h5 class="course-price">$24.99</h5> 
-            </div>
-              <div class="course">
-                <img src="https://play-lh.googleusercontent.com/RTAZb9E639F4JBcuBRTPEk9_92I-kaKgBMw4LFxTGhdCQeqWukXh74rTngbQpBVGxqo=w240-h480-rw" alt="" width="150px">
-                <h5 class="course-name">The CSS Course</h5> 
-                <h5 class="course-price">$99.99</h5> 
-              </div>
-              <div class="course">
-                <img src="https://play-lh.googleusercontent.com/RslBy1o2NEBYUdRjQtUqLbN-ZM2hpks1mHPMiHMrpAuLqxeBPcFSAjo65nQHbTA53YYn=w240-h480-rw" alt="" width="150px">
-                <h5 class="course-name">The HTML Course</h5> 
-                <h5 class="course-price">$50.99</h5> 
-              </div>
-              <div class="course">
-                <img src="https://www.interviewbit.com/blog/wp-content/uploads/2021/08/javascript.jpg" alt="" width="150px">
-                <h5 class="course-name">The javascript Course</h5> 
-                <h5 class="course-price">$149.99</h5> 
-              </div>
-              <div class="course">
-                <img src="https://yt3.googleusercontent.com/LV3BNWAe5ZCyX5rPwOVG2-b8InuAHNwIbOOe3ERJTSz2yXoCr_3OARIFoSYqe40_rR5ni779=s900-c-k-c0x00ffffff-no-rj" alt="" width="150px">
-                <h5 class="course-name">The Valorant Course</h5> 
-                <h5 class="course-price">$9.99</h5> 
-            </div>
-              <div class="course">
-                <img src="https://fossa.com/blog/content/images/size/w600h300/2022/03/CC--.png" alt="" width="150px">
-                <h5 class="course-name">The C++ Course</h5> 
-                <h5 class="course-price">$199.99</h5> 
-              </div>
-              <div class="course">
-                <img src="https://dev.java/assets/images/java-logo-vert-blk.png" alt="" width="150px">
-                <h5 class="course-name">The Java Course</h5> 
-                <h5 class="course-price">$99.99</h5> 
-            </div>
-              <div class="course">
-                <img src="https://cdn1.epicgames.com/offer/24b9b5e323bc40eea252a10cdd3b2f10/LoL_1200x1600-15ad6c981af8d98f50e833eac7843986" alt="" width="150px">
-                <h5 class="course-name">The LOL Course</h5> 
-                <h5 class="course-price">$8.99</h5> 
-              </div>
-              <div class="course">
-                <img src="https://imageio.forbes.com/specials-images/imageserve/6404b3004f6c70fc388619bd/0x0.jpg?format=jpg&width=1200" alt="" width="150px">
-                <h5 class="course-name">The CS:GO Course</h5> 
-                <h5 class="course-price">$5.99</h5> 
-              </div>
+ <div class="scroll-container" data-simplebar>
+        <h3 id="pop-cor-headline">popular courses</h3>
+        <div class="courses-wrapper" >
+    <?php 
+    $sql = "SELECT * FROM course"; 
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+      // Output data of each row
+      while ($row = $result->fetch_assoc()) {
+        ?>
+       
+          <div class="course">
+          <img src="<?php echo $row["Course_Img"]?>" alt="" width="150px">
+            <h5 class="course-name"><?php echo $row["Course_Title"] ?></h5> 
+            <h5 class="course-price"><?php echo $row["Course_Price"] ?></h5> 
+        </div>
+    <?php  }
+  } else {
+      echo "No courses found.";
+  }
+    ?>
+       
+              
              
               <!-- Add more courses as needed -->
             </div>
