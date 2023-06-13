@@ -1,0 +1,47 @@
+#overview, #Course-Management{
+    background-color: rgba(26, 97, 83, 0.267);;
+    width: 700px;
+    height: 300px;
+    border-radius: 15px;
+    
+}
+#overview-header, #cm-header{
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+#overview-main, #buttons-layout{
+    margin-top: 40px;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+h3{
+    color: white;
+}
+.overview-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.overview-values{
+    color: red;
+    font-size: 25px;
+}
+#Course-Management{
+    margin-top: 50px;
+}
+button{
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    font-weight:600;
+    padding: 5px;
+}
+#buttons-layout{
+    align-items: center;
+}
+
