@@ -18,6 +18,10 @@
     <title>Create Course</title>
 </head>
 <body>
+    <?php
+    include 'db_conn.php';
+    session_start(); 
+    ?>
     <nav>
         <a href="#">
             <h2>Pygmalion</h2>
@@ -44,7 +48,28 @@
     <div class="all-content">
     <main>
 
-        
+        <div id="courses-container">
+        <?php 
+   $sql = "SELECT * FROM course WHERE TP_ID ='" . $_SESSION["TP_ID"] . "'";
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+      // Output data of each row
+      while ($row = $result->fetch_assoc()) {
+        ?>
+       
+          <div class="course">
+          <img src="<?php echo $row["Course_Img"]?>" alt="" width="150px">
+            <h5 class="course-name"><?php echo $row["Course_Title"] ?></h5> 
+            <h5 class="course-price"><?php echo $row["Course_Price"] ?></h5> 
+        </div>
+    <?php  }
+  } else {
+      echo "No courses found.";
+  }
+    ?>
+        </div>
+   
+        </div>
         
     </main>
     <footer>
@@ -53,5 +78,5 @@
 
     <script src="../Javascript/app.js"></script>
     <script src="../Javascript/landing.js"></script>
-</body>
+      </body>
 </html>
