@@ -27,7 +27,7 @@
         </div>
         <div>
             <ul class="nav-links">
-                <li><a href="#">My courses</a></li>
+                <li><a href="tp_view_course_page.php">My courses</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
             
@@ -64,7 +64,7 @@
         <div id="Course-Management">
             <h2 id="cm-header">Course Management</h2>
             <div id="buttons-layout">
-            <button id="add-course" class="course-btn">Add Course</button>
+            <a href="create_course_page.php"><button id="add-course" class="course-btn">Add Course</button></a>
             <button id="delete-course" class="course-btn">Delete Course</button>
             <button id="edit-course" class="course-btn">Edit Course</button>
 </div>
