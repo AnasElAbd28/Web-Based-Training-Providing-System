@@ -70,6 +70,12 @@ h1{
     height: 150px;
     border-radius: 15px;
   }
-
+  .space{
+    width: 100%;
+    height: 500px;
+  }
+  nav{
+    margin-bottom: 100px;
+  }
   
   

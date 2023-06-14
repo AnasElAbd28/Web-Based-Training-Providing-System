@@ -28,7 +28,7 @@
             <ul class="nav-links">
                 <li><a href="#">Categories</a></li>
                
-                <li><a href="#">my Learning</a></li>
+                <li><a href="logout.php">Logout</a></li>
                 <li><a href="#">profile</a></li>
                 <li><a href="#"><i class="fas fa-shopping-cart" style="color: #fcfcfd;"></i></a></li>
             </ul>
@@ -44,6 +44,7 @@
     </nav>
     <div class="all-content">
     <main>
+      <div class="space"></div>
         <h1 id="headline">explore courses with no limits.</h1>
 
         <?php 
@@ -55,7 +56,7 @@
   if(isset($_SESSION['User_ID']) && isset($_SESSION['Full_Name'])){
 ?>
     <h1>Hello, <?php echo $_SESSION['Full_Name']; ?></h1>
-    <a href="logout.php">Logout</a>
+    
     <?php 
 
   }else{
