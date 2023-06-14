@@ -2,11 +2,8 @@
 include "db_conn.php";
 session_start();
 
-<<<<<<< Updated upstream
-=======
 
 
->>>>>>> Stashed changes
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Retrieve the form data

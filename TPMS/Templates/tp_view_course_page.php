@@ -20,11 +20,7 @@
 <body>
     <?php
     include 'db_conn.php';
-<<<<<<< Updated upstream
-    session_start(); 
-=======
     session_start() 
->>>>>>> Stashed changes
     ?>
     <nav>
         <a href="#">
@@ -54,11 +50,7 @@
 
         <div id="courses-container">
         <?php 
-<<<<<<< Updated upstream
-   $sql = "SELECT * FROM course WHERE TP_ID ='" . $_SESSION["TP_ID"] . "'";
-=======
     $sql = "SELECT * FROM course WHERE TP_ID ='" . $_SESSION["TP_ID"] . "'";
->>>>>>> Stashed changes
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
       // Output data of each row
