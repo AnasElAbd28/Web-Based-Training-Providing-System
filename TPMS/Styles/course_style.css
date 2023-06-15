@@ -1,0 +1,26 @@
+#additional, #pictitle{
+    width: 80%;
+    display: flex;
+    height:auto;
+    color: white;
+}
+#additional{
+    flex-direction: column;
+
+}
+
+#pictitle{
+    margin-bottom: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.description{
+    margin-bottom: 30px;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+}

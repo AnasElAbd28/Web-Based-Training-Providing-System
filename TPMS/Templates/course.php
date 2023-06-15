@@ -13,7 +13,8 @@ $courseID = $_GET['id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/layout.css">
-    <link rel="stylesheet" href="../Styles/course.css">
+    <link rel="stylesheet" href="../Styles/course_style.css">
+    <link rel="stylesheet" href="../Styles/landing.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/3704673904.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,6 +50,7 @@ $courseID = $_GET['id'];
     </nav>
     <div class="all-content">
     <main>
+        
         <?php
     $sql = "SELECT * FROM course WHERE Course_ID ='" . $courseID . "'";
     $result = mysqli_query($conn, $sql);
@@ -67,7 +69,8 @@ $courseID = $_GET['id'];
             </div>
             <button>Register now</button>
         </div>
-    </a>
+       
+ 
     <?php  }
   } else {
       echo "No courses found.";
