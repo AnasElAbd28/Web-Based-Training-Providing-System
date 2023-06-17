@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/layout.css">
+    <link rel="stylesheet" href="../Styles/view_course.css">
     <link rel="stylesheet" href="../Styles/landing.css">
-    <link rel="stylesheet" href="../Styles/dashboard.css">
+    
+    
+  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/3704673904.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +17,13 @@
 <link rel="stylesheet" href="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.css" />
 <script src="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.js"></script>
 
-    <title>Landing Page</title>
+    <title>Create Course</title>
 </head>
 <body>
+    <?php
+    include 'db_conn.php';
+    session_start() 
+    ?>
     <nav>
         <a href="#">
             <h2>Pygmalion</h2>
@@ -27,7 +34,7 @@
         </div>
         <div>
             <ul class="nav-links">
-                <li><a href="tp_view_course_page.php">My courses</a></li>
+                <li><a href="#">My courses</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
             
@@ -42,40 +49,41 @@
     </nav>
     <div class="all-content">
     <main>
-    <?php
-    session_start();
-    if(isset($_SESSION['TP_ID']) && isset($_SESSION['TP_Name'])){
+
+        <div id="courses-container">
+        <?php 
+    $sql = "SELECT * FROM course WHERE TP_ID ='" . $_SESSION["TP_ID"] . "'";
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+      // Output data of each row
+      while ($row = $result->fetch_assoc()) {
         ?>
-            <h1>Hello, <?php echo $_SESSION['TP_Name']; ?></h1>
-    <?php }  ?>
-        <div id="overview">
-            <h2 id="overview-header">Overview</h2>
-            <div id="overview-main">
-            <div class="overview-section">
-                <h3>Students Registered</h3>
-                <h4 class="overview-values">200</h4>
-            </div>
-            <div class="overview-section">
-                <h3>Number of courses</h3>
-                <h4 class="overview-values">12</h4>
-            </div>
-            </div>
+       <a href="delete_course.php?id=<?php echo $row['Course_ID']; ?>&confirm=true" onclick="return confirmDelete()">
+          <div class="course">
+          <img src="<?php echo $row["Course_Img"]?>" alt="" width="150px">
+            <h5 class="course-name"><?php echo $row["Course_Title"] ?></h5> 
+            <h5 class="course-price"><?php echo $row["Course_Price"] ?></h5> 
         </div>
-        <div id="Course-Management">
-            <h2 id="cm-header">Course Management</h2>
-            <div id="buttons-layout">
-            <a href="create_course_page.php"><button id="add-course" class="course-btn">Add Course</button></a>
-            <a href="view_course_delete_page.php"><button id="delete-course" class="course-btn">Delete Course</button></a>
-            <a href="view_course_edit_page.php"><button id="edit-course" class="course-btn">Edit Course</button></a>
-</div>
+    </a>
+    <?php  }
+  } else {
+      echo "No courses found.";
+  }
+    ?>
+        </div>
+   
         </div>
         
     </main>
     <footer>
 
     </footer>
-
+    <script>
+function confirmDelete() {
+    return confirm('Are you sure you want to delete this course?');
+}
+</script>
     <script src="../Javascript/app.js"></script>
     <script src="../Javascript/landing.js"></script>
-</body>
+      </body>
 </html>
