@@ -18,7 +18,7 @@
 </head>
 <body>
     <nav>
-        <a href="#">
+    <a href="tp_dashboard.php">
             <h2>Pygmalion</h2>
         </a>
         <div>
@@ -28,7 +28,7 @@
         <div>
             <ul class="nav-links">
                 <li><a href="tp_view_course_page.php">My courses</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="tp_logout.php">Logout</a></li>
             </ul>
             
         </div>
