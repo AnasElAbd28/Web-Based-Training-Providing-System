@@ -25,17 +25,14 @@
     session_start() 
     ?>
     <nav>
-        <a href="#">
+    <a href="tp_dashboard.php">
             <h2>Pygmalion</h2>
         </a>
-        <div>
-            <input class="search" type="text" name="" id="">
-            <i class="fa-solid fa-magnifying-glass" style="color: #f1f2f4;"></i>
-        </div>
+        
         <div>
             <ul class="nav-links">
-                <li><a href="#">My courses</a></li>
-                <li><a href="logout.php">Logout</a></li>
+            <li><a href="tp_view_course_page.php">My courses</a></li>
+                <li><a href="tp_logout.php">Logout</a></li>
             </ul>
             
         </div>

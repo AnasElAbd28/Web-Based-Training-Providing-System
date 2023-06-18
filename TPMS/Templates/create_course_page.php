@@ -19,7 +19,7 @@
 </head>
 <body>
     <nav>
-        <a href="#">
+    <a href="tp_dashboard.php">
             <h2>Pygmalion</h2>
         </a>
         <div>
