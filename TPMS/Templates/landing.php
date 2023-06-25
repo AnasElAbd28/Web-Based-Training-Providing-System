@@ -26,6 +26,7 @@
         </div>
         <div>
             <ul class="nav-links">
+                <li><a href="details_registered.php">My courses</a></li>
                 <li><a href="#">Categories</a></li>
                
                 <li><a href="logout.php">Logout</a></li>
@@ -78,18 +79,20 @@
           <div class="course">
           <img src="<?php echo $row["Course_Img"]?>" alt="" width="150px">
             <h5 class="course-name"><?php echo $row["Course_Title"] ?></h5> 
-            <h5 class="course-price"><?php echo $row["Course_Price"] ?></h5> 
+            <h5 class="course-price"><?php echo $row["Course_Price"] ?></h5>
+
         </div>
     <?php  }
   } else {
       echo "No courses found.";
   }
     ?>
-       
-              
-             
+
+
+
               <!-- Add more courses as needed -->
             </div>
+     <a href="register_course.php">Register course!</a>
           </div>
         <div class="scroll-container" data-simplebar>
             <h3 id="ins-cor-headline">popular Instructors</h3>
