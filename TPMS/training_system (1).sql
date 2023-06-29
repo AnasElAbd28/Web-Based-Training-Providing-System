@@ -4,8 +4,8 @@
 --
 -- Host: 127.0.0.1
 -- Generation Time: Jun 25, 2023 at 04:46 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -86,11 +86,43 @@ CREATE TABLE `user` (
   `Gender` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+--
+-- Adding Country into the Database
+--
+ALTER TABLE `user`
+ADD COLUMN `Country` varchar(255) NOT NULL AFTER `Gender`;
+
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`User_ID`, `Full_Name`, `email`, `Password`, `DOB`, `Gender`) VALUES
+INSERT INTO `user` (`User_ID`, `Full_Name`, `email`, `Password`, `DOB`, `Gender`, `Country`) VALUES
+(1, 'Iskanth','iskanth123@gmail.com','iskanth123','2002-04-15','male','Malaysia'),
+(2, '3omda', '3omda@gmail.com', '3omda', '2002-04-16', 'male','Egypt'),
+(3, 'Anas', 'anasehabelabd12@gmail.com', 'Zalabia12', '2023-06-07', 'male','Kuwait');
+
+-- --------------------------------------------------------
+
+
+
+--
+-- Table structure for table `user_course`
+--
+CREATE TABLE `instructor` (
+  `Instructor_ID` int(11) NOT NULL,
+  `Instructor_Name` varchar(255) NOT NULL,
+  `Instructor_email` varchar(255) NOT NULL,
+  `Instructor_Password` varchar(255) NOT NULL,
+  `Instructor_DOB` date NOT NULL,
+  `Instructor_Gender` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `instructor` (`Instructor_ID`, `Instructor_Name`, `Instructor_email`, `Instructor_Password`, `Instructor_DOB`, `Instructor_Gender`) VALUES
 (1, 'Anas', 'anasehabelabd12@gmail.com', 'Zalabia12', '2023-06-07', ''),
 (3, 'Rawan', 'Rawan@gmail.com', '123456', '2023-06-20', 'female'),
 (4, 'BodeSlayer', 'bode@gmail.com', 'Zalabia12', '2023-06-25', 'male'),
@@ -98,12 +130,6 @@ INSERT INTO `user` (`User_ID`, `Full_Name`, `email`, `Password`, `DOB`, `Gender`
 (6, 'Omar', 'Omar@gmail.com', '1234567', '2023-05-28', 'male'),
 (7, 'Anas', 'Anas@de7k.com', '12345', '2023-06-23', 'male'),
 (8, 'TAHA MOHAMMED TAHA AL-HARIRI', 'tahaalhariri2@gmail.com', 'Taha1234', '2002-07-24', 'male');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_course`
---
 
 CREATE TABLE `user_course` (
   `UserCourse_ID` int(11) NOT NULL,
@@ -124,6 +150,51 @@ INSERT INTO `user_course` (`UserCourse_ID`, `User_ID`, `Course_ID`) VALUES
 (15, 1, 3),
 (16, 1, 3),
 (17, 3, 10);
+
+--
+-- Table structure for table `instructor_availability`
+--
+
+CREATE TABLE instructor_availability (
+  `Availability_ID` int(11) NOT NULL,
+  `Instructor_ID` int(11) NOT NULL,
+  `Course_ID` int(11) NOT NULL,
+  `IsAvailable` ENUM('Yes', 'No')
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `instructor_availability`
+--
+
+INSERT INTO `instructor_availability` (`Availability_ID`,`Instructor_ID`,`Course_ID`, `IsAvailable`) VALUES
+(1, 9, 3, 'Yes'),
+(2, 9, 7, 'No'),
+(3, 9, 10, 'Yes'),
+(4, 1, 6, 'Yes'),
+(5, 1, 7, 'No'),
+(6, 1, 3, 'No'),
+(7, 1, 3, 'Yes'),
+(8, 3, 10,'Yes');
+
+--
+-- Table structure for table `certificate`
+--
+CREATE TABLE certificate (
+  `Certificate_ID` int(11) NOT NULL,
+  `User_ID` int(11) NOT NULL,
+  `Course_ID` int(11) NOT NULL,
+  `Full_Name` varchar(255) NOT NULL,
+  `Course_Title` varchar(255) NOT NULL,
+  `Certificate_Date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 
+-- Dumping data for table `certificate`
+--
+INSERT INTO `certificate` (`Certificate_ID`, `User_ID`, `Course_ID`, `Full_Name`, `Course_Title`,`Certificate_Date`) VALUES
+(1, 1, 6, 'Iskanth', 'Valorant Course', '2023-06-26'),
+(2, 1, 7, 'Iskanth', 'JS course', '2023-06-26');
+
 
 --
 -- Indexes for dumped tables
@@ -149,10 +220,31 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`User_ID`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `instructor`
+  ADD PRIMARY KEY (`Instructor_ID`);
+
+--
 -- Indexes for table `user_course`
 --
 ALTER TABLE `user_course`
   ADD PRIMARY KEY (`UserCourse_ID`),
+  ADD KEY `User_ID` (`User_ID`),
+  ADD KEY `Course_ID` (`Course_ID`);
+
+--
+-- Indexes for table `instructor_availability`
+--
+ALTER TABLE `instructor_availability`
+  ADD PRIMARY KEY (`Availability_ID`),
+  ADD KEY `Instructor_ID` (`Instructor_ID`),
+  ADD KEY `Course_ID` (`Course_ID`);
+
+--
+-- Indexes for table `certificate`
+ALTER TABLE `certificate`
+  ADD PRIMARY KEY (`Certificate_ID`),
   ADD KEY `User_ID` (`User_ID`),
   ADD KEY `Course_ID` (`Course_ID`);
 
@@ -176,13 +268,32 @@ ALTER TABLE `training_providor`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `instructor`
+--
+ALTER TABLE `instructor`
+  MODIFY `Instructor_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 
 --
 -- AUTO_INCREMENT for table `user_course`
 --
 ALTER TABLE `user_course`
   MODIFY `UserCourse_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `instructor_availability`
+--
+ALTER TABLE `instructor_availability`
+  MODIFY `Availability_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `certificate`
+--
+ALTER TABLE `certificate`
+  MODIFY `Certificate_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -200,6 +311,23 @@ ALTER TABLE `course`
 ALTER TABLE `user_course`
   ADD CONSTRAINT `user_course_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`),
   ADD CONSTRAINT `user_course_ibfk_2` FOREIGN KEY (`Course_ID`) REFERENCES `course` (`Course_ID`);
+
+--
+-- Constraints for table `instructor_availability`
+--
+
+ALTER TABLE `instructor_availability`
+  ADD  CONSTRAINT `fk_instructor_availability_instructor` FOREIGN KEY (`Instructor_ID`) REFERENCES `instructor` (`Instructor_ID`),
+  ADD CONSTRAINT `fk_instructor_availability_course` FOREIGN KEY (`Course_ID`) REFERENCES `course` (`Course_ID`);
+
+--
+-- Constraints for table `certificate`
+--
+ALTER TABLE `certificate`
+  ADD CONSTRAINT `certificate_fk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`),
+  ADD CONSTRAINT `certificate_fk_2` FOREIGN KEY (`Course_ID`) REFERENCES `course` (`Course_ID`),
+  ADD CONSTRAINT `certificate_fk_3` FOREIGN KEY (`Full_Name`) REFERENCES `user` (`Full_Name`),
+  ADD CONSTRAINT `certificate_fk_4` FOREIGN KEY (`Course_Title`) REFERENCES `course` (`Course_Title`),
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
