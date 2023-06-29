@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/layout.css">
     <link rel="stylesheet" href="../Styles/landing.css">
-    <link rel="stylesheet" href="../Styles/dashboard.css">
     <link rel="stylesheet" href="../Styles/create_course.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/3704673904.js" crossorigin="anonymous"></script>
@@ -18,6 +17,11 @@
     <title>Create Course</title>
 </head>
 <body>
+    <?php 
+    include 'db_conn.php';
+    $sql = "SELECT * FROM instructor";
+    $result = $conn->query($sql);
+?>
     <nav>
     <a href="tp_dashboard.php">
             <h2>Pygmalion</h2>
@@ -56,10 +60,24 @@
                     <option value="Finance">Finance</option> 
                     <option value="E-Sport">E-Sport</option> 
                 </select>
+                <select class="input inst" name="instructors[]" id="instructors" multiple>
+                    <option disabled selected>Category</option>
+                    <?php
+                        // Retrieve the list of instructors from the database
+                        
+                        // Display the instructor options in the dropdown menu
+                        while ($row = $result->fetch_assoc()) {
+                            $instructor_id = $row['Instructor_ID'];
+                            $instructor_name = $row['Instructor_Name'];
+                            echo "<option value='$instructor_id'>$instructor_name</option>";
+                        }
+                        ?>
+                </select>
                 <input type="submit"  value="Submit" id="submit" />
                 
                
             </form>
+           
         </div>
         
     </main>

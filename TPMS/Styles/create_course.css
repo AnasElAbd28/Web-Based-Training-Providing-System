@@ -1,5 +1,5 @@
 #create-course-form{
-    background-color: rgba(26, 97, 83, 0.267);;
+    background-color: rgba(26, 97, 83, 0.267);
     width: 700px;
     height: 800px;
     border-radius: 15px;
@@ -59,4 +59,10 @@ input:hover,textarea:hover{
 }
 #course-description{
     height: 100px;
+}
+
+.inst{
+    margin-top: 30px;
+    padding: 20px;
+    height: 50px;
 }

@@ -67,7 +67,34 @@ $courseID = $_GET['id'];
                 <h3>Description: </h3>
                 <p><?php echo $row["Course_Description"] ?></p>
             </div>
+
             
+        </div>
+        <div id="instruct">
+            <h3>Instructors</h3>
+            <?php
+            $sql = "SELECT i.Instructor_Name
+            FROM instructor i
+            WHERE i.Instructor_ID IN (
+                SELECT ci.Instructor_ID
+                FROM course_instructor ci
+                WHERE ci.Course_ID = $courseID
+            )";
+    
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while ($row = $result->fetch_assoc()) {
+            echo  $row["Instructor_Name"] . "<br>";
+        }
+    } else {
+        echo "No instructors found for the given course ID.";
+    }
+    
+    // Close the connection
+    $conn->close();
+    ?>
         </div>
        
  
