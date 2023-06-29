@@ -9,9 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["Password"];
     $date = $_POST["date"];
     $gender = $_POST["gender"];
+    $country =$_POST["country"];
 
     // Prepare and execute the SQL query to insert the data into the table
-    $sql = "INSERT INTO user (full_name, email, password, DOB, gender) VALUES ('$full_name', '$email', '$password', '$date', '$gender')";
+    $sql = "INSERT INTO user (full_name, email, password, DOB, gender, Country) VALUES ('$full_name', '$email', '$password', '$date', '$gender','$country')";
     if ($conn->query($sql) === TRUE) {
         header("Location: login_page.php");
         exit; // Terminate the current script
