@@ -30,7 +30,7 @@
                 <li><a href="#">Categories</a></li>
                
                 <li><a href="logout.php">Logout</a></li>
-                <li><a href="#">profile</a></li>
+                <li><a href="profile_page.php">profile</a></li>
                 <li><a href="#"><i class="fas fa-shopping-cart" style="color: #fcfcfd;"></i></a></li>
             </ul>
             
@@ -66,7 +66,7 @@
   }
     ?>
  <div class="scroll-container" data-simplebar>
-        <h3 id="pop-cor-headline">popular courses</h3>
+        <h3 id="pop-cor-headline">Explore courses</h3>
         <div class="courses-wrapper" >
     <?php 
     $sql = "SELECT * FROM course"; 
@@ -95,7 +95,7 @@
      <a href="register_course.php">Register course!</a>
           </div>
         <div class="scroll-container" data-simplebar>
-            <h3 id="ins-cor-headline">popular Instructors</h3>
+            <h3 id="ins-cor-headline">Explore Instructors</h3>
             <div class="courses-wrapper" >
               <div class="course">
                 <img src="https://scontent-kul2-1.xx.fbcdn.net/v/t1.6435-9/92092328_1736732676468944_3355728076590809088_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=AON9x9hfRzYAX92JOnJ&_nc_ht=scontent-kul2-1.xx&oh=00_AfDhRpIdeAaKMZy-CtvfU128RW0yV-a4tQaWp3Wmg6tKvQ&oe=64995177" alt="" width="150px">
