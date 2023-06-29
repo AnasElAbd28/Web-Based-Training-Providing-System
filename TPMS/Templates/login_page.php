@@ -22,7 +22,7 @@
                 <li><a href="#">About us</a></li>
                 <li><a href="#">services</a></li>
                 <li><a href="#">Contact us</a></li>
-                <li><a href="#">sign up</a></li>
+                <li><a href="Register.php">sign up</a></li>
             </ul>
         </div>
         
