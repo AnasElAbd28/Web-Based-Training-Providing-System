@@ -19,9 +19,10 @@
         </a>
         <div>
             <ul class="nav-links">
-                <li><a href="#">About us</a></li>
+                <li><a href="AboutUS.php">About us</a></li>
                 <li><a href="#">services</a></li>
                 <li><a href="#">Contact us</a></li>
+                <li><a href="tp_login_page.php">Trainer Provider</a></li>
                 <li><a href="Register.php">sign up</a></li>
             </ul>
         </div>
@@ -47,7 +48,8 @@
                 <input type="email" class="input" id="email" name="Email" placeholder="test@email.com" >
                 <input type="password" class="input" id="password" name="Password" placeholder="Enter your password" >
                 <input type="submit"  value="Submit" id="submit" />
-                <p id="signup">do not have an account yet? <a href="#">sign up</a></p>
+                <p id="signup">do not have an account yet? <a href="Register.php">sign up</a></p>
+                <p>If you are an Instructor. Click here <a href="instructor_login_page.php">Instructor</a></p>
             </form>
         </section>
     </div>
