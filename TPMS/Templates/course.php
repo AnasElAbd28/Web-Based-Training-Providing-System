@@ -67,7 +67,7 @@ $courseID = $_GET['id'];
                 <h3>Description: </h3>
                 <p><?php echo $row["Course_Description"] ?></p>
             </div>
-            <button>Register now</button>
+            
         </div>
        
  
