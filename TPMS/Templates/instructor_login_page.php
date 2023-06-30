@@ -20,8 +20,6 @@
         <div>
             <ul class="nav-links">
                 <li><a href="AboutUS.php">About us</a></li>
-                <li><a href="#">services</a></li>
-                <li><a href="#">Contact us</a></li>
             </ul>
         </div>
         
@@ -52,7 +50,7 @@
         </section>
     </div>
     <div id="logo">
-        <h2 id="logo-header">Pygmalion</h2>
+        <h2 id="logo-header">TPMS</h2>
         <p id="motto">We Strive for Excellence</p>
     </div>
     </main>
