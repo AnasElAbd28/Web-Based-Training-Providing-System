@@ -34,13 +34,26 @@ h3{
     margin-top: 50px;
 }
 button{
-    width: 80px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: antiquewhite;
-    font-weight:600;
-    padding: 5px;
+    border-radius: 30px;
+    width: 120px;
+    height: 50px;
+    background-color:#14141b;
+    color: white;
+    font-size: 18px;
+    border: none;
+    margin-top: 20px;
+    padding: 30px;
+    padding-bottom: 60px;
+    text-align: center;
 }
+button:hover{
+    height: 80px;
+    color: #14141b;
+    background-color: white;
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+}
+
 #buttons-layout{
     align-items: center;
 }

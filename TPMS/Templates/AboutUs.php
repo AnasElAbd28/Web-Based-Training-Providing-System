@@ -14,7 +14,7 @@
 <body>
     <nav>
         <a href="#">
-            <h2>Pygmalion</h2>
+            <h2>TPMS</h2>
         </a>
         <div>
             <ul class="nav-links">
@@ -33,12 +33,12 @@
     <div class="content">
         <section class="hero">
             <h1>About Us</h1>
-            <p>Welcome to Pygmalion, where we strive for excellence in education!</p>
+            <p>Welcome to TPMS, where we strive for excellence in education!</p>
         </section>
         <section class="about">
             <h2>Who We Are</h2>
             <p>
-                Pygmalion is an online learning platform dedicated to providing high-quality courses in various fields.
+                TPMS is an online learning platform dedicated to providing high-quality courses in various fields.
                 We believe in the power of education to transform lives and empower individuals to reach their full potential.
                 Our team of experienced instructors is passionate about sharing their knowledge and expertise to help you
                 succeed in your personal and professional goals.
@@ -47,7 +47,7 @@
         <section class="mission">
             <h2>Our Mission</h2>
             <p>
-                At Pygmalion, our mission is to make education accessible and engaging for everyone. We aim to provide
+                At TPMS, our mission is to make education accessible and engaging for everyone. We aim to provide
                 a diverse range of courses that cater to different interests and skill levels. Through our user-friendly
                 platform and interactive learning materials, we strive to create a supportive and immersive learning
                 experience for our students. Our ultimate goal is to empower individuals to acquire knowledge, develop
@@ -71,7 +71,7 @@
         </section>
     </div>
     <footer>
-        <p>&copy; 2023 Pygmalion. All rights reserved.</p>
+        <p>&copy; 2023 TPMS. All rights reserved.</p>
     </footer>
     <script src="../Javascript/app.js"></script>
 </body>

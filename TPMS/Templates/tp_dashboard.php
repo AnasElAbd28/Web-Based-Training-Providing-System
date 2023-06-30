@@ -19,7 +19,7 @@
 <body>
     <nav>
     <a href="tp_dashboard.php">
-            <h2>Pygmalion</h2>
+            <h2>TPMS</h2>
         </a>
         
         <div>

@@ -333,3 +333,44 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `course_instructor` (
+  `Course_ID` int(11) NOT NULL,
+  `Instructor_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `course_instructor`
+--
+
+INSERT INTO `course_instructor` (`Course_ID`, `Instructor_ID`) VALUES
+(13, 4),
+(13, 5),
+(13, 8),
+(14, 3),
+(14, 5),
+(14, 8);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `course_instructor`
+--
+ALTER TABLE `course_instructor`
+  ADD PRIMARY KEY (`Course_ID`,`Instructor_ID`),
+  ADD KEY `Instructor_ID` (`Instructor_ID`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `course_instructor`
+--
+ALTER TABLE `course_instructor`
+  ADD CONSTRAINT `course_instructor_ibfk_1` FOREIGN KEY (`Course_ID`) REFERENCES `course` (`Course_ID`),
+  ADD CONSTRAINT `course_instructor_ibfk_2` FOREIGN KEY (`Instructor_ID`) REFERENCES `instructor` (`Instructor_ID`);
+COMMIT;
+

@@ -28,7 +28,7 @@ $courseID = $_GET['id'];
 <body>
     <nav>
     <a href="tp_dashboard.php">
-            <h2>Pygmalion</h2>
+            <h2>TPMS</h2>
         </a>
         
         <div>
@@ -60,8 +60,14 @@ $courseID = $_GET['id'];
     <input type="text" class="input" id="course-title" name="course-title" value="<?php echo $row['Course_Title']; ?>" required>
     <input type="number" class="input" id="course-price" name="course-price" value="<?php echo $row['Course_Price']; ?>" required>
     <textarea class="input" id="course-description" name="course-description" rows="10" cols="50"><?php echo $row['Course_Description']; ?></textarea>
+    <div>
+    <label for="start-date">Start Date</label>
     <input type="date" class="input" id="start-date" name="start-date" value="<?php echo $row['Course_Start']; ?>" required>
+    </div>
+    <div>
+    <label for="end-date">End Date</label>
     <input type="date" class="input" id="end-date" name="end-date" value="<?php echo $row['Course_End']; ?>" required>
+    </div>
     <select class="input" name="category" id="category">
         <option disabled selected>Category</option>
         <option value="Computer Science">Computer Science</option>
