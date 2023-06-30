@@ -15,7 +15,7 @@
     justify-content: space-between;
 }
 
-.description{
+.description, .date{
     margin-bottom: 30px;
 }
 

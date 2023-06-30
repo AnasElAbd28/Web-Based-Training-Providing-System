@@ -29,10 +29,7 @@ $courseID = $_GET['id'];
         <a href="#">
             <h2>TPMS</h2>
         </a>
-        <div>
-            <input class="search" type="text" name="" id="">
-            <i class="fa-solid fa-magnifying-glass" style="color: #f1f2f4;"></i>
-        </div>
+        
         <div>
             <ul class="nav-links">
                 <li><a href="tp_view_course_page.php">My courses</a></li>
@@ -67,8 +64,11 @@ $courseID = $_GET['id'];
                 <h3>Description: </h3>
                 <p><?php echo $row["Course_Description"] ?></p>
             </div>
+            <div class="date">
+                <h3 id="date-headline">Date</h3>
+                <p><?php echo $row["Course_Start"] ?> - <?php echo $row["Course_End"] ?> </p>
+            </div>
 
-            
         </div>
         <div id="instruct">
             <h3>Instructors</h3>
