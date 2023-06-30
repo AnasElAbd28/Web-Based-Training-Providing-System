@@ -87,11 +87,17 @@ if (isset($_SESSION['email'])) {
                             <p><strong>Course Price:</strong> <?php echo $courseRow['Course_Price']; ?></p>
                             <p><strong>Course Category:</strong> <?php echo $courseRow['Course_Category']; ?></p>
                             <hr>
+
                         </div>
+
                         <?php
                     }
+
                     ?>
+
                 </div>
+                <h4 style="margin-left: 10px; color: white">  Are you complete the course?</h4>
+                <a style="margin-left: 10px" href="process_cer.php">Generate Certificate Now</a>
             </div>
 
             <?php
