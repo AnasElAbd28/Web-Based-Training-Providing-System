@@ -58,6 +58,7 @@ if (isset($_SESSION['email'])) {
                     .certificate p {
                         font-size: 18px;
                         margin-bottom: 10px;
+                        color: #9fa0a4;
                     }
                 </style>
             </head>
