@@ -151,3 +151,22 @@ input:hover{
  /* login.css */
 
 /* Reset default margin and padding */
+
+/* for registered courses*/
+select#courses {
+    width: 250px; /* Adjust the width as per your design */
+    height: 40px; /* Adjust the height as per your design */
+    margin-bottom: 20px; /* Adjust the margin as per your design */
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(26, 97, 83, 0.267);
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+select#courses option {
+    background-color: rgba(26, 97, 83, 0.267);
+    color: white;
+    font-size: 14px;
+}
