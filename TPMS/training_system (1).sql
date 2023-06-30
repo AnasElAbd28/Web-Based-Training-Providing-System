@@ -129,7 +129,9 @@ INSERT INTO `instructor` (`Instructor_ID`, `Instructor_Name`, `Instructor_email`
 (5, '3omda', '3omda@gmail.com', '3omda', '2023-06-12', 'male'),
 (6, 'Omar', 'Omar@gmail.com', '1234567', '2023-05-28', 'male'),
 (7, 'Anas', 'Anas@de7k.com', '12345', '2023-06-23', 'male'),
-(8, 'TAHA MOHAMMED TAHA AL-HARIRI', 'tahaalhariri2@gmail.com', 'Taha1234', '2002-07-24', 'male');
+(8, 'TAHA MOHAMMED TAHA AL-HARIRI', 'tahaalhariri2@gmail.com', 'Taha1234', '2002-07-24', 'male'),
+(9, 'Iskanth', 'iskanth123@gmail.com', 'iskanth123', '2002-04-15', 'male');
+
 
 CREATE TABLE `user_course` (
   `UserCourse_ID` int(11) NOT NULL,
@@ -274,7 +276,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `instructor`
 --
 ALTER TABLE `instructor`
-  MODIFY `Instructor_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Instructor_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 
 --
