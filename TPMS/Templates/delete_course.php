@@ -1,21 +1,24 @@
 <?php
-$confirmed = isset($_GET['confirm']) && $_GET['confirm'] === 'true';
 include 'db_conn.php';
+
+$confirmed = isset($_GET['confirm']) && $_GET['confirm'] === 'true';
 
 if ($confirmed) {
     // Retrieve the course ID from the URL
     $courseId = $_GET['id'];
 
-    // Delete the course from the database
-    $sql = "DELETE FROM course WHERE Course_ID = $courseId";
-    $result = mysqli_query($conn, $sql);
+    // Delete related records from course_instructor table
+    $sqlDeleteCourseInstructor = "DELETE FROM course_instructor WHERE Course_ID = $courseId";
+    $resultDeleteCourseInstructor = mysqli_query($conn, $sqlDeleteCourseInstructor);
 
-    echo $result;
+    // Now, delete the course from the database
+    $sqlDeleteCourse = "DELETE FROM course WHERE Course_ID = $courseId";
+    $resultDeleteCourse = mysqli_query($conn, $sqlDeleteCourse);
 
-    if ($result) {
-        // Course deleted successfully
+    if ($resultDeleteCourse && $resultDeleteCourseInstructor) {
+        // Course and related records deleted successfully
         header("Location: view_course_delete_page.php");
-       exit();
+        exit();
     } else {
         // Failed to delete the course
         echo "Error deleting course: " . mysqli_error($conn);
@@ -28,4 +31,5 @@ if ($confirmed) {
 
 // Close the database connection
 mysqli_close($conn);
+
 ?>
