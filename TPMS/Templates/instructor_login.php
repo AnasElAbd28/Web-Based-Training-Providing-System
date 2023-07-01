@@ -43,6 +43,6 @@ if(mysqli_num_rows($result) === 1){
         header("Location: instructor_login_page.php?error=Incorrect Email or Password" );
     }
 }else {
-    header("Location: instructor_login_page.php");
+    header("Location: login_page.php?error=Incorrect Email or Password" );
     exit();
 }

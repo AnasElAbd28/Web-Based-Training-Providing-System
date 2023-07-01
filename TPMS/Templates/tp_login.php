@@ -41,6 +41,6 @@ if(mysqli_num_rows($result) === 1){
         header("Location: tp_login_page.php?error=Incorrect Email or Password" );
     }
 }else {
-    header("Location: tp_login_page.php");
+    header("Location: login_page.php?error=Incorrect Email or Password" );
     exit();
 }

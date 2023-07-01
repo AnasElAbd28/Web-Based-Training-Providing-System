@@ -99,11 +99,6 @@ if (isset($_GET['generate_certificate'])) {
     <div class="all-content">
     <main>
         <?php
-
-         if (isset($_SESSION['error'])) {
-            echo "<p>Error: " . $_SESSION['error'] . "</p>";
-            unset($_SESSION['error']);
-        }
     
     $sql = "SELECT * FROM course WHERE Course_ID ='" . $courseID . "'";
     $result = mysqli_query($conn, $sql);

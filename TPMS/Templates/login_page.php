@@ -42,6 +42,7 @@
         <div id="main-content">
         
         <section id="form-sec">
+            
             <form action="login.php" method="POST">
                 <input type="email" class="input" id="email" name="Email" placeholder="test@email.com" >
                 <input type="password" class="input" id="password" name="Password" placeholder="Enter your password" >
