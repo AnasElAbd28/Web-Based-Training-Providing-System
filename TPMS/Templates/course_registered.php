@@ -1,9 +1,58 @@
 <?php
 session_start();
 include 'db_conn.php';
+require_once('../tcpdf/tcpdf.php'); // Change the path to the TCPDF library as per your server setup
 
 $courseID = $_GET['id'];
 
+
+if (isset($_GET['generate_certificate'])) {
+    // Function to generate the PDF certificate
+    function generateCertificate($fullName, $courseTitle, $courseDescription, $courseStart, $courseEnd, $courseImg)
+    {
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        // Set document information
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Your Organization');
+        $pdf->SetTitle('Certificate');
+
+        $pdf->AddPage();
+
+        // Certificate content
+        $content = "
+            <h1 style='font-size: 100px;'>Certificate of Completion</h1>
+            <img src='" . $courseImg . "'>
+            <p>This is to certify that <strong>$fullName</strong></p>
+            <p>has successfully completed the course:</p>
+            <h2>$courseTitle</h2>
+            <p>Description: $courseDescription</p>
+            <p>Date: $courseStart - $courseEnd</p>
+        ";
+
+        $pdf->writeHTML($content, true, false, true, false, '');
+        $pdf->Output('certificate.pdf', 'D'); // 'D' will force download the PDF file
+    }
+
+    $sql = "SELECT * FROM course WHERE Course_ID ='" . $courseID . "'";
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $courseImg = $row['Course_Img'];
+        $courseTitle = $row["Course_Title"];
+        $courseDescription = $row["Course_Description"];
+        $courseStart = $row["Course_Start"];
+        $courseEnd = $row["Course_End"];
+
+        // Get the User_Name from the session (you need to have the User_Name in the session when the user logs in)
+        $fullName = $_SESSION['Full_Name'];
+
+        generateCertificate($fullName, $courseTitle, $courseDescription, $courseStart, $courseEnd, $courseImg);
+    } else {
+        $_SESSION['error'] = "No courses found.";
+    }
+}
+?>
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +111,7 @@ $courseID = $_GET['id'];
       while ($row = $result->fetch_assoc()) {
         ?>
             <div id="pictitle">
-            <img src="<?php echo $row["Course_Img"]?>" alt="" width="150px">
+            <img src="<?php echo $row["Course_Img"] ?>" alt="" width="150px">
             <h2><?php echo $row["Course_Title"]  ?></h2>
         </div>
         <div id="additional">
@@ -93,11 +142,12 @@ if ($result->num_rows > 0) {
 
         echo "<p>$instructorName - Availability: $availability</p>";
     }
+    echo '<a href="course_registered.php?id=' . $courseID . '&generate_certificate=1">Generate certificate</a>';
 } else {
     echo "No instructors found for the given course ID.";
 }
 
-// Close the connection
+
 
 ?>
         </div>
@@ -108,6 +158,8 @@ if ($result->num_rows > 0) {
       echo "No courses found.";
   }
     ?>
+
+    <a href="">Generate certificate</a>
 
     <?php $conn->close(); ?>
     </main>
