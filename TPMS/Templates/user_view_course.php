@@ -26,6 +26,26 @@
     <!-- Your navigation and other content here ... -->
 
     <div class="all-content">
+    <nav>
+        <a href="landing.php">
+            <h2>TPMS</h2>
+        </a>
+        
+        <div>
+            <ul class="nav-links">
+                <li><a href="user_view_course.php">My courses</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+            
+        </div>
+        
+        <div class="burger">
+            <div class="l1"></div>
+            <div class="l2"></div>
+            <div class="l3"></div>
+            
+        </div>
+    </nav>
         <main>
             <div id="courses-container">
                 <?php
