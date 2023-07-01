@@ -19,31 +19,10 @@ session_start();
 $query = "SELECT Course_ID, Course_Title FROM course";
 $result = $conn->query($query);
 ?>
-<nav>
-    <a href="#">
-        <h2>TPMS</h2>
-    </a>
-    <div>
-        <ul class="nav-links">
-            <li><a href="#">About us</a></li>
-            <li><a href="#">services</a></li>
-            <li><a href="#">Contact us</a></li>
-                       <li><a href="Register.php">sign up</a></li>
-        </ul>
-    </div>
 
-
-    <div class="burger">
-        <div class="l1"></div>
-        <div class="l2"></div>
-        <div class="l3"></div>
-
-    </div>
-</nav>
 <div class="all-content">
     <section id="text-sec">
         <p id="login-text">Register Course</p>
-        <p id="promotion">Access many of our courses taught by the best instructors</p>
     </section>
     <main>
         <div id="main-content">
@@ -60,8 +39,8 @@ while ($row = $result->fetch_assoc()) {
 
 ?>
                        </select>
-                    <input type="submit"  value="Register!" id="submit" />
-                    <p id="signup">Return to main page <a href="landing.php">main page</a></p>
+                    <input type="submit"  value="Register" id="submit" />
+                    <p>Return to landing page <a href="landing.php">landing page</a></p>
                 </form>
             </section>
         </div>

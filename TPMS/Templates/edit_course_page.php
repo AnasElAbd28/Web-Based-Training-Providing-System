@@ -61,11 +61,11 @@ $courseID = $_GET['id'];
     <input type="number" class="input" id="course-price" name="course-price" value="<?php echo $row['Course_Price']; ?>" required>
     <textarea class="input" id="course-description" name="course-description" rows="10" cols="50"><?php echo $row['Course_Description']; ?></textarea>
     <div>
-    <label for="start-date">Start Date</label>
+    <label for="start-date" class="date-label">Start Date</label>
     <input type="date" class="input" id="start-date" name="start-date" value="<?php echo $row['Course_Start']; ?>" required>
     </div>
     <div>
-    <label for="end-date">End Date</label>
+    <label for="end-date" class="date-label">End Date</label>
     <input type="date" class="input" id="end-date" name="end-date" value="<?php echo $row['Course_End']; ?>" required>
     </div>
     <select class="input" name="category" id="category">

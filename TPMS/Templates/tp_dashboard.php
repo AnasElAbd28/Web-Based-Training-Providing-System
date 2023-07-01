@@ -21,7 +21,6 @@
     <a href="tp_dashboard.php">
             <h2>TPMS</h2>
         </a>
-        
         <div>
             <ul class="nav-links">
                 <li><a href="tp_view_course_page.php">My courses</a></li>
@@ -40,21 +39,25 @@
     <div class="all-content">
     <main>
     <?php
+    include 'db_conn.php';
     session_start();
     if(isset($_SESSION['TP_ID']) && isset($_SESSION['TP_Name'])){
         ?>
             <h1>Hello, <?php echo $_SESSION['TP_Name']; ?></h1>
     <?php }  ?>
         <div id="overview">
+        <?php
+        $current_TP_ID = $_SESSION['TP_ID']; 
+        $sql = "SELECT COUNT(*) AS course_count FROM course WHERE TP_ID = $current_TP_ID";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $courseCount = $row['course_count'];
+        ?>
             <h2 id="overview-header">Overview</h2>
             <div id="overview-main">
             <div class="overview-section">
-                <h3>Students Registered</h3>
-                <h4 class="overview-values">200</h4>
-            </div>
-            <div class="overview-section">
                 <h3>Number of courses</h3>
-                <h4 class="overview-values">12</h4>
+                <h4 class="overview-values"><?php echo $courseCount; ?></h4>
             </div>
             </div>
         </div>

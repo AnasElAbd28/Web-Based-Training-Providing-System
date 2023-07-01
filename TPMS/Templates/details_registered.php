@@ -27,11 +27,8 @@
     <div>
         <ul class="nav-links">
             <li><a href="details_registered.php">My courses</a></li>
-            <li><a href="#">Categories</a></li>
-
             <li><a href="logout.php">Logout</a></li>
             <li><a href="#">profile</a></li>
-            <li><a href="#"><i class="fas fa-shopping-cart" style="color: #fcfcfd;"></i></a></li>
         </ul>
 
     </div>

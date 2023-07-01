@@ -27,15 +27,12 @@
 
         <div>
             <ul class="nav-links">
-                <li><a href="#">Categories</a></li>
-               
                 <li><a href="logout.php">Logout</a></li>
                 <li><a href="#">My courses</a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart" style="color: #fcfcfd;"></i></a></li>
             </ul>
             
         </div>
-        
+      
         <div class="burger">
             <div class="l1"></div>
             <div class="l2"></div>

@@ -21,17 +21,10 @@
             <h2>TPMS</h2>
         </a>
         <div>
-            <input class="search" type="text" name="" id="">
-            <i class="fa-solid fa-magnifying-glass" style="color: #f1f2f4;"></i>
-        </div>
-        <div>
             <ul class="nav-links">
                 <li><a href="details_registered.php">My courses</a></li>
-                <li><a href="#">Categories</a></li>
-               
                 <li><a href="logout.php">Logout</a></li>
                 <li><a href="profile_page.php">profile</a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart" style="color: #fcfcfd;"></i></a></li>
             </ul>
             
         </div>
@@ -79,7 +72,7 @@
           <div class="course">
           <img src="<?php echo $row["Course_Img"]?>" alt="" width="150px">
             <h5 class="course-name"><?php echo $row["Course_Title"] ?></h5> 
-            <h5 class="course-price"><?php echo $row["Course_Price"] ?></h5>
+            <h5 class="course-price"><?php echo $row["Course_Price"] ?> RM</h5>
 
         </div>
     <?php  }
@@ -92,47 +85,10 @@
 
               <!-- Add more courses as needed -->
             </div>
-     <a href="register_course.php">Register course!</a>
+     
           </div>
-        <div class="scroll-container" data-simplebar>
-            <h3 id="ins-cor-headline">Explore Instructors</h3>
-            <div class="courses-wrapper" >
-              <div class="course">
-                <img src="https://scontent-kul2-1.xx.fbcdn.net/v/t1.6435-9/92092328_1736732676468944_3355728076590809088_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=AON9x9hfRzYAX92JOnJ&_nc_ht=scontent-kul2-1.xx&oh=00_AfDhRpIdeAaKMZy-CtvfU128RW0yV-a4tQaWp3Wmg6tKvQ&oe=64995177" alt="" width="150px">
-                <h5 class="instructor-name">Mohamed Emad</h5>
-              </div>
-              <div class="course">
-                <img src="https://scontent-kut2-2.xx.fbcdn.net/v/t39.30808-6/293349272_2363855850432148_7774657039553821642_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pIFOoacMTZQAX9CA30E&_nc_ht=scontent-kut2-2.xx&oh=00_AfDJ0BTbJi5J8xu3YRLJdC5zl-fItraLWNnsC4SWt3iNzg&oe=6476FF7B" alt="" width="150px">
-                <h5 class="instructor-name">Bode Abdallah</h5>
-              </div>
-              <div class="course">
-                <img src="https://scontent-kul2-1.xx.fbcdn.net/v/t1.6435-9/75446587_795373540916665_6507178094015545344_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=174925&_nc_ohc=FQw1HoNTejEAX8Sx7ER&_nc_ht=scontent-kul2-1.xx&oh=00_AfDFaaOIwi4yPxMED3y1NkioS8vYVILIVDuxhaqu3nPZyw&oe=6499287C" alt="" width="150px">
-                <h5 class="instructor-name">Anas Elabd</h5>
-              </div>
-              <div class="course">
-                <img src="https://scontent-kut2-2.xx.fbcdn.net/v/t1.6435-9/145801706_460181118348795_9172438552908238619_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_ohc=b1fJrT7QzxAAX9L8plD&_nc_ht=scontent-kut2-2.xx&oh=00_AfDvwmSCnu9psN6ZnY2n3xjgx6s4cRqSuWRDBKzrZHsWLw&oe=64992772" alt="" width="150px">
-                <h5 class="instructor-name">Ahmad Doma</h5>
-              </div>
-              <div class="course">
-                <img src="https://scontent-kut2-2.xx.fbcdn.net/v/t39.30808-1/294886398_2119617204884553_849711238507000596_n.jpg?stp=dst-jpg_p320x320&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_ohc=9hpYG911-7gAX_XddLB&_nc_ht=scontent-kut2-2.xx&oh=00_AfCiFPFCg7F5uiKbqBcfC84qtiq5Zr8mq0z0hCXaboZYPA&oe=6475E4E5" alt="" width="150px">
-                <h5 class="instructor-name">Omar Mohammed</h5>
-              </div>
-              <div class="course">
-                <img src="https://scontent-kul2-1.xx.fbcdn.net/v/t39.30808-6/307523974_3517434518489626_71210084849487177_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=TsVeYez5yVgAX-Kp6Ln&_nc_ht=scontent-kul2-1.xx&oh=00_AfDG53OflWXnOyy_JbknsGKX7pqLRRCycZa7KiqqfUk_Xw&oe=6476AF5A" alt="" width="150px">
-                <h5 class="instructor-name">Fadi Mohamed</h5>
-              </div>
-              <div class="course">
-                <img src="https://scontent-kut2-2.xx.fbcdn.net/v/t39.30808-6/247531391_1069071157229885_1840586772939304331_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=RjL6JGqMawkAX9_Hpcc&_nc_ht=scontent-kut2-2.xx&oh=00_AfD9mWLCjy-vMkCs0y_zHTq4sT5qfWwt39xkg7TQqhW10A&oe=64762975" alt="" width="150px">
-                <h5 class="instructor-name">Abdelrahman Tarek</h5>
-              </div>
-              <div class="course">
-                <img src="https://scontent-kul2-1.xx.fbcdn.net/v/t39.30808-6/323876235_708475910912202_6206605209186774581_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=YJEWwNAakIAAX-Mmbgz&_nc_oc=AQl93jvETLWJfVJvJ-FHwbLzl70oG-2uUxK3Ri6zGjSZdIkbQMmL5sjNlN8QxQp2oVnZTGiyhDpT9QVJp9L3Cz69&_nc_ht=scontent-kul2-1.xx&oh=00_AfCV2Bs8dx_fJMd4wfEN2G-nZf-qmt4JfUyjmNBBfhocgw&oe=64771DB7" alt="">
-                <h5 class="instructor-name">Abdelrahman Tarek</h5>
-              </div>
-             
-              <!-- Add more courses as needed -->
-            </div>
-          </div>
+          <a href="register_course.php" id="reg">Register course</a>
+       
     </main>
 
 </div>

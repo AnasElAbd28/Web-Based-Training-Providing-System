@@ -20,9 +20,6 @@
         <div>
             <ul class="nav-links">
                 <li><a href="AboutUs.php">About us</a></li>
-                <li><a href="#">services</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="Register.php">sign up</a></li>
             </ul>
         </div>
         
@@ -47,6 +44,8 @@
                 <input type="email" class="input" id="email" name="Email" placeholder="test@email.com" >
                 <input type="password" class="input" id="password" name="Password" placeholder="Enter your password" >
                 <input type="submit"  value="Submit" id="submit" />
+                <p>If you are an Student. Click here <a href="login_page.php">Student</a></p>
+                <p>If you are an Instructor. Click here <a href="instructor_login_page.php">Instructor</a></p>
                 
             </form>
         </section>
