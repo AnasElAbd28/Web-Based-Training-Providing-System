@@ -53,11 +53,11 @@
                 <input type="number" class="input" id="course-price" name="course-price" placeholder="course price" required>
                 <textarea class="input" id="course-description" name="course-description" rows="10" cols="50" placeholder="Description"></textarea>
                 <div>
-                <label for="course-img">Course Image</label>
+                <label for="course-img" class="date-label">Start Date</label>
                 <input type="date" class="input" id="start-date" name="start-date" required>
                 </div>
                 <div>
-                <label for="course-img">Course Image</label>
+                <label for="course-img" class="date-label">End Date</label>
                 <input type="date" class="input" id="end-date" name="end-date" required>
                 </div>
                 <select class ="input" name="category" id="category">

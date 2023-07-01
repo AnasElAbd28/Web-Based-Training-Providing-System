@@ -54,7 +54,7 @@
         </section>
     </div>
     <div id="logo">
-        <h2 id="logo-header">Pygmalion</h2>
+        <h2 id="logo-header">TPMS</h2>
         <p id="motto">We Strive for Excellence</p>
     </div>
     </main>

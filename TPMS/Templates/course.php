@@ -73,28 +73,27 @@ $courseID = $_GET['id'];
         <div id="instruct">
             <h3>Instructors</h3>
             <?php
-            $sql = "SELECT i.Instructor_Name
-            FROM instructor i
-            WHERE i.Instructor_ID IN (
-                SELECT ci.Instructor_ID
-                FROM course_instructor ci
-                WHERE ci.Course_ID = $courseID
-            )";
-    
-    $result = $conn->query($sql);
-    
-    if ($result->num_rows > 0) {
-        // Output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo  $row["Instructor_Name"] . "<br>";
-        }
-    } else {
-        echo "No instructors found for the given course ID.";
+$sql = "SELECT i.Instructor_Name, ia.IsAvailable
+        FROM instructor i
+        INNER JOIN instructor_availability ia ON ia.Instructor_ID = i.Instructor_ID
+        WHERE ia.Course_ID = $courseID";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while ($row = $result->fetch_assoc()) {
+        $instructorName = $row["Instructor_Name"];
+        $availability = $row["IsAvailable"];
+
+        echo "<p>$instructorName - Availability: $availability</p>";
     }
-    
-    // Close the connection
-    $conn->close();
-    ?>
+} else {
+    echo "No instructors found for the given course ID.";
+}
+
+// Close the connection
+$conn->close();
+?>
         </div>
        
  
