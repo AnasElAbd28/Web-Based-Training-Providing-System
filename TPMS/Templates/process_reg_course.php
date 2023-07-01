@@ -1,49 +1,31 @@
 <?php
 session_start();
-include "db_conn.php";
+include 'db_conn.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve the selected course ID from the form
-    $courseID = $_POST['Course_ID'];
+$courseID = $_GET['id'];
+$userID = $_SESSION['User_ID'];
 
-    // Retrieve the User_ID based on the user's email
-    $userEmail = $_SESSION['email']; // Assuming you have stored the user's email in the session
-    $getUserIDQuery = "SELECT User_ID FROM user WHERE email = ?";
-    $getUserIDStatement = $conn->prepare($getUserIDQuery);
-    $getUserIDStatement->bind_param('s', $userEmail);
-    $getUserIDStatement->execute();
-    $result = $getUserIDStatement->get_result();
+// Check if the user has already registered for the course
+$sqlCheckDuplicate = "SELECT * FROM user_course WHERE User_ID = '$userID' AND Course_ID = '$courseID'";
+$resultCheckDuplicate = mysqli_query($conn, $sqlCheckDuplicate);
 
-    // Check if the User_ID is valid
-    if ($result->num_rows === 1) {
-        $row = $result->fetch_assoc();
-        $userID = $row['User_ID'];
-
-        // Prepare and execute the query to insert the user's course selection into the user_course table
-        $insertCourseQuery = "INSERT INTO user_course (User_ID, Course_ID) VALUES (?, ?)";
-        $insertCourseStatement = $conn->prepare($insertCourseQuery);
-        $insertCourseStatement->bind_param('ii', $userID, $courseID);
-
-        if ($insertCourseStatement->execute()) {
-            // Course registration successful
-            echo "Course registration successful!";
-            header("Location: details_registered.php");
-        } else {
-            // Error occurred during course registration
-            echo "Error registering the course. Please try again.";
-        }
-
-        $insertCourseStatement->close();
-    } else {
-        // Error retrieving User_ID
-        echo "Error retrieving User_ID. Please try again.";
-    }
-
-    $getUserIDStatement->close();
+if ($resultCheckDuplicate->num_rows > 0) {
+    // Redirect back to the course page with an error message
+    $_SESSION['error'] = "You have already registered for this course.";
+    header("Location: user_course.php?id=$courseID");
+    exit();
 } else {
-    // Redirect to the form page if accessed directly without submitting the form
-    header("Location: register_course.php");
+    // Insert the new record into the user_course table
+    $sqlInsertCourse = "INSERT INTO user_course (User_ID, Course_ID) VALUES ('$userID', '$courseID')";
+    if (mysqli_query($conn, $sqlInsertCourse)) {
+        // Redirect to the landing page upon successful registration
+        header("Location: landing.php");
+        exit();
+    } else {
+        // Redirect back to the course page with an error message
+        $_SESSION['error'] = "Error registering for the course.";
+        header("Location: user_course.php?id=$courseID");
+        exit();
+    }
 }
-
-$conn->close();
 ?>

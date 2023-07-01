@@ -22,7 +22,7 @@
         </a>
         <div>
             <ul class="nav-links">
-                <li><a href="details_registered.php">My courses</a></li>
+                <li><a href="user_view_course.php">My courses</a></li>
                 <li><a href="logout.php">Logout</a></li>
                 <li><a href="profile_page.php">profile</a></li>
             </ul>
@@ -69,12 +69,13 @@
       while ($row = $result->fetch_assoc()) {
         ?>
        
+       <a href="user_course.php?id=<?php echo $row['Course_ID']; ?>">
           <div class="course">
           <img src="<?php echo $row["Course_Img"]?>" alt="" width="150px">
             <h5 class="course-name"><?php echo $row["Course_Title"] ?></h5> 
-            <h5 class="course-price"><?php echo $row["Course_Price"] ?> RM</h5>
-
+            <h5 class="course-price"><?php echo $row["Course_Price"] ?></h5>
         </div>
+      </a>
     <?php  }
   } else {
       echo "No courses found.";
@@ -87,7 +88,6 @@
             </div>
      
           </div>
-          <a href="register_course.php" id="reg">Register course</a>
        
     </main>
 

@@ -21,10 +21,6 @@
             <h2>TPMS</h2>
         </a>
         <div>
-            <input class="search" type="text" name="" id="">
-            <i class="fa-solid fa-magnifying-glass" style="color: #f1f2f4;"></i>
-        </div>
-        <div>
             <ul class="nav-links">
                 <li><a href="instructor_view_course.php">My courses</a></li>
                 <li><a href="AboutUs.php">About Us</a></li>
