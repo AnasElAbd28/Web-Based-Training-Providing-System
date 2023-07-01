@@ -22,7 +22,7 @@ $courseID = $_GET['id'];
 <link rel="stylesheet" href="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.css" />
 <script src="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.js"></script>
 
-    <title>Landing Page</title>
+    <title>Course</title>
 </head>
 <body>
     <nav>
@@ -64,6 +64,10 @@ $courseID = $_GET['id'];
                 <h3>Description: </h3>
                 <p><?php echo $row["Course_Description"] ?></p>
             </div>
+            <div class="category">
+                <h3>Category: </h3>
+                <p><?php echo $row["Course_Category"] ?></p>
+            </div>
             <div class="date">
                 <h3 id="date-headline">Date</h3>
                 <p><?php echo $row["Course_Start"] ?> - <?php echo $row["Course_End"] ?> </p>
@@ -95,6 +99,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
         </div>
+        
        
  
     <?php  }

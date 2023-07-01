@@ -19,8 +19,6 @@
         <div>
             <ul class="nav-links">
                 <li><a href="#">About us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact us</a></li>
                 <li><a href="login_page.php">Sign in</a></li>
             </ul>
         </div>

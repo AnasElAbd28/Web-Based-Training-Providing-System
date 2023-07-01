@@ -63,6 +63,14 @@ $courseID = $_GET['id'];
                 <h3>Description: </h3>
                 <p><?php echo $row["Course_Description"] ?></p>
             </div>
+            <div class="category">
+                <h3>Category: </h3>
+                <p><?php echo $row["Course_Category"] ?></p>
+            </div>
+            <div class="date">
+                <h3 id="date-headline">Date</h3>
+                <p><?php echo $row["Course_Start"] ?> - <?php echo $row["Course_End"] ?> </p>
+            </div>
 
             
         </div>

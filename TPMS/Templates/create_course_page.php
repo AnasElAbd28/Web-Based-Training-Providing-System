@@ -29,7 +29,7 @@
         
         <div>
             <ul class="nav-links">
-                <li><a href="tp_vire_course_page.php">My courses</a></li>
+                <li><a href="tp_view_course_page.php">My courses</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
             

@@ -26,7 +26,7 @@
     ?>
     <nav>
     <a href="tp_dashboard.php">
-            <h2>TPMS</h2>
+            <h2>View Courses</h2>
         </a>
         
         <div>

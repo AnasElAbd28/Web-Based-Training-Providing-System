@@ -28,7 +28,7 @@
         <div>
             <ul class="nav-links">
                 <li><a href="logout.php">Logout</a></li>
-                <li><a href="#">My courses</a></li>
+                <li><a href="user_view_course.php">My courses</a></li>
             </ul>
             
         </div>

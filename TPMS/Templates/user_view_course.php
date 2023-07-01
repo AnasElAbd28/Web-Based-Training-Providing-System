@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.css" />
 <script src="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.js"></script>
-
+<title>View Courses</title>
 </head>
 <body>
     <?php
