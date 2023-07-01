@@ -26,14 +26,14 @@ $courseID = $_GET['id'];
 </head>
 <body>
     <nav>
-        <a href="tp_dashboard.php">
+        <a href="landing.php">
             <h2>TPMS</h2>
         </a>
         
         <div>
             <ul class="nav-links">
                 <li><a href="user_view_course.php">My courses</a></li>
-                <li><a href="tp_logout.php">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
             
         </div>

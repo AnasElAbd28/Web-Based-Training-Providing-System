@@ -20,10 +20,8 @@
         <div>
             <ul class="nav-links">
                 <li><a href="AboutUS.php">About us</a></li>
-                <li><a href="#">services</a></li>
-                <li><a href="#">Contact us</a></li>
                 <li><a href="tp_login_page.php">Trainer Provider</a></li>
-                <li><a href="Register.php">sign up</a></li>
+                <li><a href="Register.php">Sign up</a></li>
             </ul>
         </div>
         
