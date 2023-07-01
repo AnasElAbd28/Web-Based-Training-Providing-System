@@ -8,7 +8,7 @@ $courseID = $_GET['id'];
 
 if (isset($_GET['generate_certificate'])) {
     // Function to generate the PDF certificate
-    function generateCertificate($fullName, $courseTitle, $courseDescription, $courseStart, $courseEnd, $courseImg)
+    function generateCertificate($fullName, $courseTitle, $courseDescription, $courseStart, $courseEnd)
     {
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -22,12 +22,15 @@ if (isset($_GET['generate_certificate'])) {
         // Certificate content
         $content = "
             <h1 style='font-size: 100px;'>Certificate of Completion</h1>
-            <img src='" . $courseImg . "'>
+            <p>Thank you for participating in our course and congratulations on your completion!</p>
+            <p>We appreciate your dedication and hard work throughout the course. You have successfully demonstrated your knowledge and skills in the subject matter.</p>
+            <p>We hope that this course has been valuable to you and that you will apply what you have learned in your future endeavors.</p>
             <p>This is to certify that <strong>$fullName</strong></p>
             <p>has successfully completed the course:</p>
             <h2>$courseTitle</h2>
             <p>Description: $courseDescription</p>
             <p>Date: $courseStart - $courseEnd</p>
+            <h2> TPMS Team</h2>
         ";
 
         $pdf->writeHTML($content, true, false, true, false, '');
@@ -38,7 +41,6 @@ if (isset($_GET['generate_certificate'])) {
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $courseImg = $row['Course_Img'];
         $courseTitle = $row["Course_Title"];
         $courseDescription = $row["Course_Description"];
         $courseStart = $row["Course_Start"];
@@ -47,7 +49,7 @@ if (isset($_GET['generate_certificate'])) {
         // Get the User_Name from the session (you need to have the User_Name in the session when the user logs in)
         $fullName = $_SESSION['Full_Name'];
 
-        generateCertificate($fullName, $courseTitle, $courseDescription, $courseStart, $courseEnd, $courseImg);
+        generateCertificate($fullName, $courseTitle, $courseDescription, $courseStart, $courseEnd);
     } else {
         $_SESSION['error'] = "No courses found.";
     }
@@ -142,7 +144,7 @@ if ($result->num_rows > 0) {
 
         echo "<p>$instructorName - Availability: $availability</p>";
     }
-    echo '<a href="course_registered.php?id=' . $courseID . '&generate_certificate=1">Generate certificate</a>';
+    
 } else {
     echo "No instructors found for the given course ID.";
 }
@@ -159,9 +161,11 @@ if ($result->num_rows > 0) {
   }
     ?>
 
-    <a href="">Generate certificate</a>
 
-    <?php $conn->close(); ?>
+    <?php 
+    echo '<a href="course_registered.php?id=' . $courseID . '&generate_certificate=1">Generate certificate</a>';
+    $conn->close(); 
+    ?>
     </main>
     <footer>
 
