@@ -26,7 +26,7 @@ $courseID = $_GET['id'];
 </head>
 <body>
     <nav>
-        <a href="#">
+        <a href="instructor.php">
             <h2>TPMS</h2>
         </a>
         <div>
