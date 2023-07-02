@@ -76,7 +76,7 @@
           <div class="course">
           <img src="<?php echo $row["Course_Img"]?>" alt="" width="150px">
             <h5 class="course-name"><?php echo $row["Course_Title"] ?></h5> 
-            <h5 class="course-price"><?php echo $row["Course_Price"] ?></h5>
+            <h5 class="course-price">RM <?php echo $row["Course_Price"] ?></h5>
 
         </div>
       </a>
