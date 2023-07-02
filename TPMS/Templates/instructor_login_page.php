@@ -45,6 +45,7 @@
                 <input type="password" class="input" id="password" name="Password" placeholder="Enter your password" >
                 <input type="submit"  value="Submit" id="submit" />
                 <p>If you are a Student. Click here <a href="login_page.php">Student</a></p>
+                <p>If you are a Training Provider. Click here <a href="tp_login_page.php">Trainer</a></p>
                 
             </form>
         </section>
