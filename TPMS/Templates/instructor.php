@@ -88,10 +88,6 @@
 
 
 
-              <!-- Add more courses as needed -->
-            </div>
-     <a href="CheckAvailable_page.php">Check Availability!</a>
-          </div>
         
     </main>
 
